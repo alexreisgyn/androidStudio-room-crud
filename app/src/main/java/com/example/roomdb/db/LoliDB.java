@@ -14,6 +14,7 @@ public abstract class LoliDB extends RoomDatabase {
 
     private static final String DATABASE_NAME = "loli.db";
 
+    // Singleton
     private static LoliDB instance;
 
     public static synchronized LoliDB getInstance(Context context) {

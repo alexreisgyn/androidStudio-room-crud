@@ -40,6 +40,7 @@ public class LoliAdapter extends RecyclerView.Adapter<LoliAdapter.LoliViewHolder
         return new LoliViewHolder(view);
     }
 
+    // Bind single Loli to item
     @Override
     public void onBindViewHolder(@NonNull LoliViewHolder holder, int position) {
         Loli loli = nListLoli.get(position);
@@ -82,8 +83,10 @@ public class LoliAdapter extends RecyclerView.Adapter<LoliAdapter.LoliViewHolder
         return 0;
     }
 
+    // Single Item
     public class LoliViewHolder extends RecyclerView.ViewHolder {
 
+        // Item's UI Components
         private ImageView ivAvatar;
         private TextView tvLoliName;
         private TextView tvLoliAge;
@@ -93,6 +96,7 @@ public class LoliAdapter extends RecyclerView.Adapter<LoliAdapter.LoliViewHolder
         public LoliViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            // Map components data to this class properties
             ivAvatar = itemView.findViewById(R.id.img_avatar);
             tvLoliName = itemView.findViewById(R.id.tv_loliName);
             tvLoliAge = itemView.findViewById(R.id.tv_loliAge);
@@ -101,6 +105,7 @@ public class LoliAdapter extends RecyclerView.Adapter<LoliAdapter.LoliViewHolder
         }
     }
 
+    // Interface to handle callback
     public interface ICLickItemLoli {
         void updateLoli(Loli loli);
         void deleteLoli(Loli loli);

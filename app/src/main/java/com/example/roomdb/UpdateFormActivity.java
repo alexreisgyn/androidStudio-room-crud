@@ -16,11 +16,13 @@ import com.example.roomdb.models.Loli;
 
 public class UpdateFormActivity extends AppCompatActivity {
 
+    // Activity's UI components
     private EditText editLoliName;
     private EditText editLoliAge;
     private EditText editImgURL;
     private Button btnEdit;
 
+    // Data passing from MainActivity
     private Loli loli;
 
     @Override
@@ -28,16 +30,20 @@ public class UpdateFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_form);
 
+        // Map UI to this class's properties
         initUI();
 
+        // Get data passing from MainActivity
         loli = (Loli) getIntent().getExtras().get("loli");
 
+        // If loli => load data to UI
         if (loli != null) {
             editLoliName.setText(loli.getLoliName());
             editLoliAge.setText(loli.getLoliAge());
             editImgURL.setText(loli.getImgUrl());
         }
 
+        // Click update btn
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +52,7 @@ public class UpdateFormActivity extends AppCompatActivity {
         });
     }
 
+    // Map UI to this class's properties
     private void initUI() {
         editLoliName = findViewById(R.id.edt_loliName);
         editLoliAge = findViewById(R.id.edt_loliAge);
@@ -53,7 +60,10 @@ public class UpdateFormActivity extends AppCompatActivity {
         btnEdit = findViewById(R.id.btn_updateLoli);
     }
 
+    // Handle Update
     private void updateLoli() {
+
+        // Get data from form
         String strLoliName = editLoliName.getText().toString().trim();
         String strLoliAge = editLoliAge.getText().toString().trim();
         String strImgURL = editImgURL.getText().toString().trim();
@@ -71,10 +81,11 @@ public class UpdateFormActivity extends AppCompatActivity {
         loli.setLoliAge(strLoliAge);
         loli.setImgUrl(strImgURL);
 
+        // Update Loli
         LoliDB.getInstance(this).loliDAO().updateLoli(loli);
-
         Toast.makeText(this, "Loli updated!", Toast.LENGTH_SHORT).show();
 
+        // Fire back result to previous Activity (Main)
         Intent intent = new Intent();
         setResult(Activity.RESULT_OK, intent);
         finish();
