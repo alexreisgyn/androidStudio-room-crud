@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edt_loliName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:hint="Loli's name" />
+
+    <EditText
+        android:id="@+id/edt_loliAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:hint="Loli's age" />
+
+    <EditText
+        android:id="@+id/edt_imgURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:hint="Image URL" />
+
+    <Button
+        android:id="@+id/btn_addLoli"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"
+        android:text="Add loli"
+        android:layout_marginTop="21dp" />
+
+    <EditText
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:hint="Search"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
+        android:layout_marginTop="21dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_loliList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="21dp" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
